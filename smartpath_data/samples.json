@@ -1,0 +1,1330 @@
+[
+  {
+    "id": "93a74751-f4f6-4c81-96ee-8da323788170",
+    "instruction": "将路径 root.children[0].children[1] 的文字颜色改为orange",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"color\":\"orange\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767500205681,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "fdb26fd1-b7b3-4efa-979d-67c0c2545c9b",
+    "instruction": "将路径 root.children[0].children[2].children[0] 的内容修改为\"修改后的文本\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"text\":\"修改后的文本\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767500205681,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "658f5113-a37c-41c2-975c-5f55b891f6c2",
+    "instruction": "将路径 root.children[0].children[0] 的文字颜色改为green",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"color\":\"green\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767500205681,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "4f076276-f14b-441e-a053-91ad103fbb7f",
+    "instruction": "设置 root.children[0].children[2].children[0] 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d2d28657-7c88-4ac4-acb3-59f052047672",
+    "instruction": "替换 root.children[0].children[1].children[0] 的内容为\"所见即所得的编辑体验\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"text\":\"所见即所得的编辑体验\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d0e966c3-917a-41c4-9405-3061d4c642e2",
+    "instruction": "将路径 root.children[0] 的文字颜色改为#AF52DE",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0]\",\"params\":{\"color\":\"#AF52DE\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d0eb83b4-eab7-4a70-b04d-5722f8daa997",
+    "instruction": "设置 root.children[0].children[1] 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "1de4a564-e2a8-4f36-a248-935e069f722e",
+    "instruction": "请将 root.children[0].children[1] 元素的文本颜色调整为gray",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"color\":\"gray\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "cff37858-87f8-4551-9299-7f1108c7eaf6",
+    "instruction": "把 root.children[0].children[0] 这个元素删掉",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "bd4c3792-df8b-4dec-8da7-7f97b16a5963",
+    "instruction": "替换 root.children[0].children[2].children[0] 的内容为\"人工智能驱动的编辑器\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"text\":\"人工智能驱动的编辑器\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "2ccda3e8-d604-4b22-8606-428aab4a5b96",
+    "instruction": "将路径 root.children[0].children[1] 的内容修改为\"拖拽调整位置\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"text\":\"拖拽调整位置\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "1c04ccaf-6b59-458e-81f4-d4b6ce45f245",
+    "instruction": "删除路径 root.children[0] 的元素",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "ca1f0b58-60c1-46fc-9e9d-97a399a84e4a",
+    "instruction": "给 root.children[0].children[1] 添加属性 title=\"提示文字\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "608dd640-fec1-4a69-a4a0-8af196add600",
+    "instruction": "替换 root.children[0].children[1].children[1] 的内容为\"修改后的文本\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"text\":\"修改后的文本\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d498c231-9b96-4e58-a871-7e77d06f0cc3",
+    "instruction": "将路径 root.children[0] 的内容修改为\"标题已更新\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0]\",\"params\":{\"text\":\"标题已更新\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "776389c8-103b-444f-8f0c-87da537ec875",
+    "instruction": "设置 root.children[0] 的背景为#f0f0f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0]\",\"params\":{\"backgroundColor\":\"#f0f0f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "00cadea2-4835-4399-8cc9-c0e47bd278df",
+    "instruction": "给 root.children[0].children[1] 添加属性 data-type=\"important\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"data-type\":\"important\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "451ae8a2-9c5e-4fee-b8f8-d63eaffa5268",
+    "instruction": "设置 root 的 font-size 为24px",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root\",\"params\":{\"fontSize\":\"24px\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "5d38c64c-99bf-4b2e-bb03-a6e3d898b03f",
+    "instruction": "把 root.children[0] 的文字改成\"标题已更新\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0]\",\"params\":{\"text\":\"标题已更新\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "352a5ba5-2e51-497c-b5b7-3ad116f5e883",
+    "instruction": "设置 root.children[0].children[2].children[0] 的 data-type 属性为 important",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"data-type\":\"important\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "a96833d1-8436-47bf-928e-175f4f987232",
+    "instruction": "把 root.children[0].children[2].children[0] 的文字改成\"新内容\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"text\":\"新内容\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "21e485a0-f1fa-4baf-90c3-a5f7ef10c235",
+    "instruction": "移除 root.children[0].children[1].children[0] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "1765ddec-074b-433e-b282-ea74aa0cfcec",
+    "instruction": "设置 root.children[0].children[1].children[1] 的 id 属性为 element-19",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"id\":\"element-19\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509788417,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "3bae2b78-b5fc-456d-9fbb-83148e66e0e5",
+    "instruction": "替换 root.children[0].children[1].children[1] 的内容为\"内容已替换\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"text\":\"内容已替换\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "8813f861-bddc-4990-93fc-c5007fae5cfc",
+    "instruction": "将路径 root.children[0].children[0] 的内容修改为\"双击可以修改\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"text\":\"双击可以修改\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "24e63dce-dd57-4449-9570-0583cb87a567",
+    "instruction": "把 root 的文字改成\"欢迎使用 SmartPath\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root\",\"params\":{\"text\":\"欢迎使用 SmartPath\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "321033a2-a1cd-4733-ad7f-30d26648671b",
+    "instruction": "将路径 root.children[0].children[1] 的背景色改为linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"backgroundColor\":\"linear-gradient(135deg, #667eea 0%, #764ba2 100%)\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "1d1bf6ce-4ae4-416f-877b-736853525dda",
+    "instruction": "设置 root.children[0].children[1].children[0] 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "bb65ae71-455e-4ba4-aabf-0843e8effe19",
+    "instruction": "给 root.children[0].children[1].children[0] 添加属性 class=\"highlighted\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"class\":\"highlighted\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792345,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "578c7f50-3aa4-45b5-91e7-4b69606bb200",
+    "instruction": "设置 root.children[0].children[0] 的 data-type 属性为 important",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"data-type\":\"important\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792346,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "550119c0-4b0a-4eaf-a970-33696a8d522a",
+    "instruction": "把 root.children[0].children[1].children[0] 的颜色设置成#FF3B30",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"color\":\"#FF3B30\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792346,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "0bc54274-c93b-4e23-9388-9f897a720418",
+    "instruction": "设置 root 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792346,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "800bfec9-ac28-4124-b8ef-3ff84f7dada5",
+    "instruction": "更新 root.children[0].children[2] 的文本为\"拖拽调整位置\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"text\":\"拖拽调整位置\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792346,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "dcfcd94b-4aa6-498b-baa8-be9feff3999c",
+    "instruction": "移除 root.children[0].children[0] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792346,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d86e1e55-340c-49f4-803f-507646c050fd",
+    "instruction": "请将 root.children[0].children[1].children[1] 元素的文本颜色调整为#5AC8FA",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"color\":\"#5AC8FA\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "7352000e-5abd-4421-9722-ee87f491b658",
+    "instruction": "将路径 root.children[0].children[1] 的内容修改为\"点击此处编辑\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"text\":\"点击此处编辑\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "609e8020-a5c2-482b-b5e2-41211e1d65c7",
+    "instruction": "将路径 root.children[0].children[0] 的背景色改为#fff1f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"backgroundColor\":\"#fff1f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "15f9b599-0dd3-4646-9826-78ae477ba2b8",
+    "instruction": "修改 root.children[0].children[0] 的字体颜色为purple",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"color\":\"purple\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "5f5cdae7-bf9a-42f4-a233-d98cb932447a",
+    "instruction": "给 root.children[0].children[2] 添加属性 class=\"highlighted\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"class\":\"highlighted\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "1492c3e1-dc6b-4b3c-b934-e84a3fbbcc14",
+    "instruction": "将路径 root.children[0].children[1].children[0] 的背景色改为#f6ffed",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"backgroundColor\":\"#f6ffed\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "203cb83e-aff7-4d01-a363-5bc39485925d",
+    "instruction": "将路径 root 的背景色改为#f0f0f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root\",\"params\":{\"backgroundColor\":\"#f0f0f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "55ee9de6-8e91-4fa6-b4ba-a8dc2609e74c",
+    "instruction": "删除路径 root.children[0].children[1].children[0] 的元素",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "32575cd5-0fc5-4f91-907d-e54e5a7773ae",
+    "instruction": "将路径 root.children[0].children[1] 的文字颜色改为#FF3B30",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"color\":\"#FF3B30\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d0945e91-1fa7-47d0-9672-0e7aa17e9c95",
+    "instruction": "设置 root.children[0].children[2].children[0] 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "958dacf9-8824-4a19-b2f7-834a2c83792f",
+    "instruction": "替换 root.children[0].children[1].children[0] 的内容为\"所见即所得的编辑体验\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"text\":\"所见即所得的编辑体验\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "5d339720-8df6-4417-9a25-53c0a7e09405",
+    "instruction": "将路径 root.children[0] 的文字颜色改为#AF52DE",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0]\",\"params\":{\"color\":\"#AF52DE\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "fc6a2e82-9b88-40cb-93db-1647e872b01f",
+    "instruction": "设置 root.children[0].children[1] 的 title 属性为 提示文字",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "be02471c-dff5-427d-a427-312977533c9a",
+    "instruction": "请将 root.children[0].children[1] 元素的文本颜色调整为gray",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"color\":\"gray\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "cb0927ce-40f4-4861-b20d-ceafca965c2b",
+    "instruction": "把 root.children[0].children[0] 这个元素删掉",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "13118134-2d52-4f70-b2b5-63ca6304f469",
+    "instruction": "替换 root.children[0].children[2].children[0] 的内容为\"人工智能驱动的编辑器\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"text\":\"人工智能驱动的编辑器\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "f935e6d9-adc6-40b4-9e38-45827054fda9",
+    "instruction": "将路径 root.children[0].children[1] 的内容修改为\"拖拽调整位置\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"text\":\"拖拽调整位置\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "a2f502e4-56bd-4f24-ab91-6551c00be4a1",
+    "instruction": "删除路径 root.children[0] 的元素",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "495ee94f-2534-40ff-82c5-c6c7beda2d99",
+    "instruction": "给 root.children[0].children[1] 添加属性 title=\"提示文字\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"title\":\"提示文字\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "7ad97d35-6fbd-4ee8-bc04-00938e7403e2",
+    "instruction": "替换 root.children[0].children[1].children[1] 的内容为\"修改后的文本\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"text\":\"修改后的文本\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "9bb356c1-a6d0-4163-bd06-55f2529756c0",
+    "instruction": "将路径 root.children[0] 的内容修改为\"标题已更新\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0]\",\"params\":{\"text\":\"标题已更新\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "65e3785c-12db-494c-88be-2f73728babfe",
+    "instruction": "设置 root.children[0] 的背景为#f0f0f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0]\",\"params\":{\"backgroundColor\":\"#f0f0f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "51ae7c4c-e1ff-4d75-aa87-182deca6253f",
+    "instruction": "给 root.children[0].children[1] 添加属性 data-type=\"important\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"data-type\":\"important\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "2302b603-968b-48bf-bc6a-b5d999b534df",
+    "instruction": "设置 root 的 font-size 为24px",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root\",\"params\":{\"fontSize\":\"24px\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "afa5c0c4-8212-4739-aad4-abb696ef815a",
+    "instruction": "把 root.children[0] 的文字改成\"标题已更新\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0]\",\"params\":{\"text\":\"标题已更新\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "e5396ff6-271d-4d9e-969c-c4a38dbef51c",
+    "instruction": "设置 root.children[0].children[2].children[0] 的 data-type 属性为 important",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"data-type\":\"important\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "533d04b0-c837-4f8e-85ed-f2813b1ac9d9",
+    "instruction": "把 root.children[0].children[2].children[0] 的文字改成\"新内容\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"text\":\"新内容\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "f9e5d119-affe-40a4-907f-2b893c5f88a7",
+    "instruction": "移除 root.children[0].children[1].children[0] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "133ce55c-33a2-4532-a399-485cab400f67",
+    "instruction": "设置 root.children[0].children[1].children[1] 的 id 属性为 element-19",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setAttr\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"id\":\"element-19\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509792347,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "307d9700-302e-4c7a-9d2e-eff9805b8240",
+    "instruction": "设置 root.children[0].children[1].children[0] 的背景为#f0f0f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"backgroundColor\":\"#f0f0f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "f5b0205a-77bd-4270-97eb-45b8cd3318ae",
+    "instruction": "更新 root.children[0].children[2] 的文本为\"人工智能驱动的编辑器\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"text\":\"人工智能驱动的编辑器\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "6e1af369-bf73-4e54-b758-65ed4757bac5",
+    "instruction": "设置 root.children[0].children[2] 的背景为#fff1f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"backgroundColor\":\"#fff1f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "3142e79f-840c-4e4c-a252-6608f00cda94",
+    "instruction": "把 root.children[0].children[1].children[1] 的文字改成\"拖拽调整位置\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"text\":\"拖拽调整位置\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "cc4f25ef-8b3e-4cc1-8b13-f9c1f0d6d8e3",
+    "instruction": "请将 root.children[0].children[2] 元素的文本颜色调整为orange",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"color\":\"orange\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d1528243-b5f3-4092-afab-cbcd54ddbaff",
+    "instruction": "修改 root.children[0].children[1].children[0] 的字体颜色为brown",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[0]\",\"params\":{\"color\":\"brown\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "46799aa8-b892-48cd-a46f-2465624ece84",
+    "instruction": "设置 root.children[0].children[1].children[1] 的 font-size 为14px",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"fontSize\":\"14px\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "a540a4d9-2c2c-489f-bac5-b9ef85ec5cf5",
+    "instruction": "把 root.children[0].children[1].children[1] 的颜色设置成brown",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{\"color\":\"brown\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "229b3390-63d3-46a2-b030-83275879c038",
+    "instruction": "将路径 root.children[0].children[0] 的背景色改为#f0f0f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{\"backgroundColor\":\"#f0f0f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "f6b0ea05-8faf-49d0-9f18-4581a29f7ac4",
+    "instruction": "设置 root.children[0].children[2].children[0] 的背景为#fff1f0",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[2].children[0]\",\"params\":{\"backgroundColor\":\"#fff1f0\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "b79ee7e3-47b4-45a8-92f5-dc40b0c74ba7",
+    "instruction": "移除 root.children[0].children[0] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[0]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827946,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "858caffb-1c1b-4d89-93ab-dd293e40528b",
+    "instruction": "将路径 root.children[0] 的内容修改为\"人工智能驱动的编辑器\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0]\",\"params\":{\"text\":\"人工智能驱动的编辑器\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "d76d9335-8137-4337-942d-ea72c426d90f",
+    "instruction": "移除 root.children[0].children[1] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "980270db-71fe-4f3e-816c-ef38054ad517",
+    "instruction": "把 root.children[0].children[2] 的颜色设置成gray",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"color\":\"gray\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "8efd767f-5630-4392-a93e-8b9dbba1d8c4",
+    "instruction": "更新 root.children[0].children[2] 的文本为\"欢迎使用 SmartPath\"",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setText\",\"targetPath\":\"root.children[0].children[2]\",\"params\":{\"text\":\"欢迎使用 SmartPath\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "976fb22d-516a-469f-85f6-35aa834bb88c",
+    "instruction": "请将 root 元素的文本颜色调整为#AF52DE",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root\",\"params\":{\"color\":\"#AF52DE\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "655997c2-d142-489b-b744-a242e480042c",
+    "instruction": "设置 root.children[0].children[1] 的 font-size 为24px",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{\"fontSize\":\"24px\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "27d860eb-7b7a-4ad9-9aca-1eb127ca90fc",
+    "instruction": "移除 root.children[0].children[1].children[1] 节点",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1].children[1]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "94a3b554-3e58-4f05-9afb-4a65dffe5303",
+    "instruction": "将路径 root.children[0] 的字体大小改为28px",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"setStyle\",\"targetPath\":\"root.children[0]\",\"params\":{\"fontSize\":\"28px\"},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  },
+  {
+    "id": "a26052fa-8d3c-4cc4-8d20-a2cba70567ed",
+    "instruction": "把 root.children[0].children[1] 这个元素删掉",
+    "input": "{\"tag\":\"root\",\"content\":\"\",\"path\":\"root\",\"attributes\":{},\"semantic_features\":\"文档根节点\",\"children\":[{\"tag\":\"h1\",\"content\":\"SmartPath 2.0 协议验证\",\"path\":\"root.children[0]\",\"attributes\":{\"color\":\"rgb(0, 122, 255)\"},\"semantic_features\":\"1级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"本段落现在逻辑上属于上方 H1 的子节点。\",\"path\":\"root.children[0].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"h2\",\"content\":\"1. 嵌套寻址测试\",\"path\":\"root.children[0].children[1]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这个 P 标签是 H2 的子节点。\",\"path\":\"root.children[0].children[1].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]},{\"tag\":\"p\",\"content\":\"这个 P 也是 H2 的，因为它们都在下一个标题之前。\",\"path\":\"root.children[0].children[1].children[1]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]},{\"tag\":\"h2\",\"content\":\"2. 兄弟标题测试\",\"path\":\"root.children[0].children[2]\",\"attributes\":{\"color\":\"rgb(51, 51, 51)\"},\"semantic_features\":\"2级标题\",\"children\":[{\"tag\":\"p\",\"content\":\"这里的结构会被重新组织为逻辑树。\",\"path\":\"root.children[0].children[2].children[0]\",\"attributes\":{},\"semantic_features\":\"段落正文\",\"children\":[]}]}]}]}",
+    "output": "[{\"action\":\"remove\",\"targetPath\":\"root.children[0].children[1]\",\"params\":{},\"reason\":\"Teacher Generated\"}]",
+    "timestamp": 1767509827948,
+    "is_hard": false,
+    "metadata": {
+      "is_hard": false,
+      "vdom_depth": null,
+      "source": null,
+      "model_version": null,
+      "correction_count": 0
+    },
+    "history": []
+  }
+]
