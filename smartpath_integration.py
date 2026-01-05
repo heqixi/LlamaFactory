@@ -16,19 +16,13 @@ SmartPath 与 Llama-Factory 深度集成服务
 """
 
 import os
-import sys
 from pathlib import Path
-
-# 添加 SDK 路径
-SDK_PATH = Path(__file__).parent.parent / "packages" / "smartpath-server-sdk" / "src"
-sys.path.insert(0, str(SDK_PATH))
 
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
-# 导入 SmartPath Server SDK
+# 直接从本地模块导入 SmartPath Server SDK
 from smartpath_server import (
     create_smartpath_router,
     SmartPathConfig,
