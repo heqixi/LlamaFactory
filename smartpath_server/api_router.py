@@ -302,6 +302,74 @@ def create_smartpath_router(
         """执行推理验证"""
         return await inference_engine.inference(request)
 
+    # ============== LoRA 模型管理 ==============
+
+    @router.get("/lora/list")
+    async def list_lora_models():
+        """
+        获取可用的 LoRA 模型列表
+        扫描 saves 目录下的所有训练输出
+        """
+        models = bridge.list_lora_models()
+        loaded = bridge.get_loaded_lora()
+        return {
+            "models": models,
+            "loaded_model": loaded,
+        }
+
+    @router.post("/lora/load")
+    async def load_lora_model(request: dict):
+        """
+        加载 LoRA 模型（预热）
+        加载模型是耗时操作，建议先调用此接口预加载
+        """
+        lora_path = request.get("lora_path")
+        if not lora_path:
+            raise HTTPException(status_code=400, detail="lora_path is required")
+        
+        result = await bridge.load_lora_model(lora_path)
+        return result
+
+    @router.post("/lora/unload")
+    async def unload_lora_model():
+        """
+        卸载已加载的 LoRA 模型，释放显存
+        """
+        result = bridge.unload_lora_model()
+        return result
+
+    @router.get("/lora/status")
+    async def get_lora_status():
+        """
+        获取当前模型加载状态
+        """
+        return {
+            "loaded_model": bridge.get_loaded_lora(),
+            "is_loading": bridge.is_loading_model(),
+        }
+
+    @router.post("/lora/inference")
+    async def lora_inference(request: dict):
+        """
+        使用指定的 LoRA 模型进行推理
+        
+        请求体:
+        {
+            "lora_path": "saves/Qwen2-0.5B-Instruct/lora/train_xxx",
+            "prompt": "用户指令",
+            "context": {"pos": "1.2", "type": "h1", "label": "标题内容"}
+        }
+        """
+        lora_path = request.get("lora_path")
+        prompt = request.get("prompt", "")
+        context = request.get("context")
+        
+        if not lora_path:
+            raise HTTPException(status_code=400, detail="lora_path is required")
+        
+        result = await bridge.run_lora_inference(lora_path, prompt, context)
+        return result
+
     # ============== 模型管理 ==============
 
     @router.get("/models", response_model=List[ModelListItem])

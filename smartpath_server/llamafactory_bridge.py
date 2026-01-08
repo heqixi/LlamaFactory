@@ -525,3 +525,425 @@ class LlamaFactoryBridge:
         index = step % len(samples)
         return samples[index]
 
+    # ============== LoRA 模型管理 ==============
+
+    def list_lora_models(self) -> List[Dict[str, str]]:
+        """
+        列出可用的 LoRA 模型
+        扫描 saves 目录下的所有训练输出
+        """
+        models = []
+        saves_dir = self.lf_root / self.config.output_prefix
+        
+        if not saves_dir.exists():
+            return models
+        
+        # 遍历 saves 目录
+        for model_dir in saves_dir.iterdir():
+            if not model_dir.is_dir():
+                continue
+            
+            lora_dir = model_dir / "lora"
+            if not lora_dir.exists():
+                continue
+            
+            # 遍历 lora 目录下的训练输出
+            for train_dir in lora_dir.iterdir():
+                if not train_dir.is_dir():
+                    continue
+                
+                # 检查是否包含 adapter_model.safetensors 或 adapter_model.bin
+                has_adapter = (
+                    (train_dir / "adapter_model.safetensors").exists() or
+                    (train_dir / "adapter_model.bin").exists() or
+                    (train_dir / "adapter_config.json").exists()
+                )
+                
+                if has_adapter:
+                    # 获取修改时间
+                    try:
+                        mtime = train_dir.stat().st_mtime
+                        time_str = datetime.fromtimestamp(mtime).strftime("%m-%d %H:%M")
+                    except:
+                        time_str = "unknown"
+                    
+                    models.append({
+                        "name": f"{model_dir.name}/{train_dir.name}",
+                        "path": str(train_dir.relative_to(self.lf_root)),
+                        "time": time_str,
+                    })
+        
+        # 按时间倒序排列
+        models.sort(key=lambda x: x["time"], reverse=True)
+        return models
+
+    # 缓存已加载的模型
+    _loaded_model: Optional[Any] = None
+    _loaded_tokenizer: Optional[Any] = None
+    _loaded_lora_path: Optional[str] = None
+    _is_loading: bool = False
+    
+    def get_loaded_lora(self) -> Optional[str]:
+        """获取当前加载的 LoRA 模型路径"""
+        return self._loaded_lora_path
+    
+    def is_loading_model(self) -> bool:
+        """是否正在加载模型"""
+        return self._is_loading
+    
+    async def load_lora_model(self, lora_path: str) -> Dict[str, Any]:
+        """
+        预加载 LoRA 模型
+        """
+        if self._is_loading:
+            return {"success": False, "error": "正在加载其他模型，请稍后"}
+        
+        full_path = self.lf_root / lora_path
+        
+        if not full_path.exists():
+            return {"success": False, "error": f"LoRA 模型不存在: {lora_path}"}
+        
+        # 检查是否已经加载
+        if self._loaded_lora_path == lora_path and self._loaded_model is not None:
+            return {"success": True, "message": "模型已加载", "lora_path": lora_path}
+        
+        self._is_loading = True
+        
+        try:
+            import torch
+            from transformers import AutoModelForCausalLM, AutoTokenizer
+            from peft import PeftModel
+            
+            print(f"[SmartPath] 开始加载 LoRA 模型: {lora_path}")
+            
+            # 先卸载旧模型
+            self.unload_lora_model()
+            
+            # 读取 adapter_config.json 获取基础模型
+            adapter_config_path = full_path / "adapter_config.json"
+            base_model = "Qwen/Qwen2-0.5B-Instruct"
+            
+            if adapter_config_path.exists():
+                with open(adapter_config_path, "r") as f:
+                    adapter_config = json.load(f)
+                base_model = adapter_config.get("base_model_name_or_path", base_model)
+            
+            print(f"[SmartPath] 基础模型: {base_model}")
+            
+            # 加载 tokenizer
+            self._loaded_tokenizer = AutoTokenizer.from_pretrained(
+                base_model,
+                trust_remote_code=True,
+            )
+            
+            # 加载基础模型
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            print(f"[SmartPath] 使用设备: {device}")
+            
+            base_model_instance = AutoModelForCausalLM.from_pretrained(
+                base_model,
+                torch_dtype=torch.float16 if device == "cuda" else torch.float32,
+                device_map="auto" if device == "cuda" else None,
+                trust_remote_code=True,
+            )
+            
+            # 加载 LoRA 权重
+            self._loaded_model = PeftModel.from_pretrained(
+                base_model_instance,
+                str(full_path),
+            )
+            self._loaded_model.eval()
+            
+            if device == "cpu":
+                self._loaded_model = self._loaded_model.to(device)
+            
+            self._loaded_lora_path = lora_path
+            
+            print(f"[SmartPath] 模型加载完成!")
+            
+            return {
+                "success": True, 
+                "message": "模型加载成功",
+                "lora_path": lora_path,
+                "base_model": base_model,
+                "device": device,
+            }
+        except ImportError as e:
+            return {"success": False, "error": f"缺少依赖: {e}"}
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return {"success": False, "error": str(e)}
+        finally:
+            self._is_loading = False
+    
+    def unload_lora_model(self) -> Dict[str, Any]:
+        """
+        卸载已加载的 LoRA 模型，释放显存
+        """
+        if self._loaded_model is None:
+            return {"success": True, "message": "没有已加载的模型"}
+        
+        old_path = self._loaded_lora_path
+        
+        try:
+            import torch
+            import gc
+            
+            # 释放模型
+            del self._loaded_model
+            del self._loaded_tokenizer
+            self._loaded_model = None
+            self._loaded_tokenizer = None
+            self._loaded_lora_path = None
+            
+            # 清理显存
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            
+            print(f"[SmartPath] 模型已卸载: {old_path}")
+            
+            return {"success": True, "message": f"模型已卸载: {old_path}"}
+        except Exception as e:
+            return {"success": False, "error": str(e)}
+    
+    async def run_lora_inference(
+        self, 
+        lora_path: str, 
+        prompt: str, 
+        context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """
+        使用 LoRA 模型进行推理
+        
+        流程:
+        1. 检查模型是否已加载
+        2. 构建完整的 ChatML 格式输入
+        3. 执行推理并返回结果
+        """
+        # 检查模型是否已加载
+        if self._loaded_model is None or self._loaded_lora_path != lora_path:
+            # 模型未加载或路径不匹配，使用模拟输出
+            mock_output = self._generate_mock_output(prompt, context)
+            return {
+                "success": True,
+                "lora_path": lora_path,
+                "prompt": prompt,
+                "context": context,
+                "output": mock_output,
+                "note": "模型未加载，使用模拟输出。请先点击'加载模型'按钮。",
+                "model_loaded": False,
+            }
+        
+        # 构建 ChatML 格式输入
+        system_prompt = """You are a SmartPath Orchestrator for DocumentEditor.
+Capabilities: {"h1,h2,h3":["toggleBold","setHeader","setColor","setText","remove"],"p":["toggleBold","setFontSize","setColor","setText","remove"]}
+Rules: Output the thought process in <thought> tags first, then the action_graph in JSON code block."""
+        
+        user_input = "[Focus Window]\n"
+        if context:
+            user_input += f"- pos: {context.get('pos', '?')}, type: {context.get('type', '?')}, label: \"{context.get('label', '')}\", state: active\n"
+        user_input += f"\nInstruction: {prompt}"
+        
+        try:
+            # 执行推理
+            output = await self._do_inference_with_loaded_model(system_prompt, user_input)
+            
+            return {
+                "success": True,
+                "lora_path": lora_path,
+                "prompt": prompt,
+                "context": context,
+                "output": output,
+                "model_loaded": True,
+            }
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return {
+                "success": False,
+                "error": str(e),
+                "lora_path": lora_path,
+                "prompt": prompt,
+            }
+    
+    async def _do_inference_with_loaded_model(self, system_prompt: str, user_input: str) -> str:
+        """
+        使用已加载的模型执行推理
+        """
+        import torch
+        
+        # 构建 ChatML 消息
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_input},
+        ]
+        
+        # 应用 chat template
+        text = self._loaded_tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        
+        # Tokenize
+        inputs = self._loaded_tokenizer(text, return_tensors="pt")
+        device = next(self._loaded_model.parameters()).device
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+        
+        # 推理
+        with torch.no_grad():
+            outputs = self._loaded_model.generate(
+                **inputs,
+                max_new_tokens=512,
+                do_sample=True,
+                temperature=0.7,
+                top_p=0.9,
+                pad_token_id=self._loaded_tokenizer.pad_token_id,
+                eos_token_id=self._loaded_tokenizer.eos_token_id,
+            )
+        
+        # 解码输出
+        response = self._loaded_tokenizer.decode(
+            outputs[0][inputs["input_ids"].shape[1]:],
+            skip_special_tokens=True,
+        )
+        
+        return response
+    
+    async def _do_inference(self, lora_path: str, system_prompt: str, user_input: str) -> str:
+        """
+        执行真正的推理
+        """
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        from peft import PeftModel
+        
+        # 检查是否需要重新加载模型
+        if self._loaded_lora_path != lora_path or self._loaded_model is None:
+            print(f"[SmartPath] 加载 LoRA 模型: {lora_path}")
+            
+            # 从 adapter_config.json 读取基础模型
+            # 注意：配置中的路径可能是训练服务器的本地路径，需要转换为 HuggingFace 模型名
+            adapter_config_path = Path(lora_path) / "adapter_config.json"
+            base_model = "Qwen/Qwen2-0.5B-Instruct"  # 默认值
+            
+            if adapter_config_path.exists():
+                with open(adapter_config_path, "r") as f:
+                    adapter_config = json.load(f)
+                config_model = adapter_config.get("base_model_name_or_path", "")
+                
+                # 尝试从路径中提取模型名称
+                if "Qwen2-0" in config_model or "Qwen2-0.5B" in config_model:
+                    base_model = "Qwen/Qwen2-0.5B-Instruct"
+                elif "Qwen2-1.5B" in config_model:
+                    base_model = "Qwen/Qwen2-1.5B-Instruct"
+                elif "Qwen2-7B" in config_model:
+                    base_model = "Qwen/Qwen2-7B-Instruct"
+                elif "/" in config_model and not config_model.startswith("/"):
+                    # 已经是 HuggingFace 格式
+                    base_model = config_model
+            
+            print(f"[SmartPath] 基础模型: {base_model}")
+            
+            # 加载 tokenizer
+            self._loaded_tokenizer = AutoTokenizer.from_pretrained(
+                base_model,
+                trust_remote_code=True,
+            )
+            
+            # 加载基础模型
+            base_model_instance = AutoModelForCausalLM.from_pretrained(
+                base_model,
+                torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+                device_map="auto" if torch.cuda.is_available() else None,
+                trust_remote_code=True,
+            )
+            
+            # 加载 LoRA 权重
+            self._loaded_model = PeftModel.from_pretrained(
+                base_model_instance,
+                lora_path,
+            )
+            self._loaded_model.eval()
+            self._loaded_lora_path = lora_path
+            
+            print("[SmartPath] 模型加载完成")
+        
+        # 构建 ChatML 消息
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_input},
+        ]
+        
+        # 应用 chat template
+        text = self._loaded_tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        
+        # Tokenize
+        inputs = self._loaded_tokenizer(text, return_tensors="pt")
+        if torch.cuda.is_available():
+            inputs = {k: v.cuda() for k, v in inputs.items()}
+        
+        # 推理
+        import torch
+        with torch.no_grad():
+            outputs = self._loaded_model.generate(
+                **inputs,
+                max_new_tokens=512,
+                do_sample=True,
+                temperature=0.7,
+                top_p=0.9,
+                pad_token_id=self._loaded_tokenizer.pad_token_id,
+                eos_token_id=self._loaded_tokenizer.eos_token_id,
+            )
+        
+        # 解码输出
+        response = self._loaded_tokenizer.decode(
+            outputs[0][inputs["input_ids"].shape[1]:],
+            skip_special_tokens=True,
+        )
+        
+        return response
+    
+    def _generate_mock_output(self, prompt: str, context: Optional[Dict[str, Any]]) -> str:
+        """
+        生成模拟输出（当无法加载模型时）
+        """
+        pos = context.get('pos', '1.0') if context else '1.0'
+        
+        # 简单的规则匹配
+        action = "setText"
+        params = ["新内容"]
+        
+        if "红" in prompt or "color" in prompt.lower():
+            action = "setColor"
+            params = ["red"]
+        elif "蓝" in prompt:
+            action = "setColor" 
+            params = ["blue"]
+        elif "加粗" in prompt or "bold" in prompt.lower():
+            action = "toggleBold"
+            params = [True]
+        elif "删" in prompt or "移除" in prompt:
+            action = "remove"
+            params = []
+        elif "标题" in prompt or "h1" in prompt.lower() or "h2" in prompt.lower():
+            action = "setHeader"
+            params = ["H2"]
+        
+        thought = f"1. 当前位于 {context.get('type', '?')}({pos})。\n2. 用户要求执行: {prompt}\n3. 执行 {action} 操作。"
+        
+        action_graph = [
+            {
+                "target": f"pos('{pos}')",
+                "ops": [[action] + params]
+            }
+        ]
+        
+        return f"<thought>\n{thought}\n</thought>\n```json\n{json.dumps(action_graph, ensure_ascii=False, indent=2)}\n```"
+

@@ -1,0 +1,5 @@
+model_name_or_path: Qwen/Qwen2-0.5B-Instruct
+adapter_name_or_path: saves/Qwen2-0.5B-Instruct/lora/train_2026-01-05-17-20-37
+template: qwen3_nothink
+infer_backend: huggingface  # choices: [huggingface, vllm, sglang, ktransformers]
+trust_remote_code: true
