@@ -1331,6 +1331,47 @@ register_template(
 
 
 register_template(
+    name="lfm2",
+    format_user=StringFormatter(slots=["<|im_start|>user\n{{content}}<|im_end|>\n<|im_start|>assistant\n"]),
+    format_assistant=StringFormatter(slots=["{{content}}<|im_end|>\n"]),
+    format_system=StringFormatter(slots=["<|im_start|>system\n{{content}}<|im_end|>\n"]),
+    format_function=FunctionFormatter(slots=["{{content}}<|im_end|>\n"], tool_format="lfm2"),
+    format_observation=StringFormatter(
+        slots=[
+            "<|im_start|>tool\n<|tool_response_start|>{{content}}<|tool_response_end|><|im_end|>\n"
+            "<|im_start|>assistant\n"
+        ]
+    ),
+    format_tools=ToolFormatter(tool_format="lfm2"),
+    default_system="You are a helpful AI assistant.",
+    stop_words=["<|im_end|>"],
+    tool_call_words=("<|tool_call_start|>", "<|tool_call_end|>"),
+    replace_eos=True,
+)
+
+
+register_template(
+    name="lfm2_vl",
+    format_user=StringFormatter(slots=["<|im_start|>user\n{{content}}<|im_end|>\n<|im_start|>assistant\n"]),
+    format_assistant=StringFormatter(slots=["{{content}}<|im_end|>\n"]),
+    format_system=StringFormatter(slots=["<|im_start|>system\n{{content}}<|im_end|>\n"]),
+    format_function=FunctionFormatter(slots=["{{content}}<|im_end|>\n"], tool_format="lfm2"),
+    format_observation=StringFormatter(
+        slots=[
+            "<|im_start|>tool\n<|tool_response_start|>{{content}}<|tool_response_end|><|im_end|>\n"
+            "<|im_start|>assistant\n"
+        ]
+    ),
+    format_tools=ToolFormatter(tool_format="lfm2"),
+    default_system="You are a helpful multimodal assistant by Liquid AI.",
+    stop_words=["<|im_end|>"],
+    tool_call_words=("<|tool_call_start|>", "<|tool_call_end|>"),
+    replace_eos=True,
+    mm_plugin=get_mm_plugin(name="lfm2_vl", image_token="<image>"),
+)
+
+
+register_template(
     name="llama2",
     format_user=StringFormatter(slots=[{"bos_token"}, "[INST] {{content}} [/INST]"]),
     format_system=StringFormatter(slots=["<<SYS>>\n{{content}}\n<</SYS>>\n\n"]),
@@ -2275,6 +2316,21 @@ register_template(
     stop_words=["###"],
     efficient_eos=True,
     mm_plugin=get_mm_plugin(name="llava", image_token="<image>"),
+)
+
+
+register_template(
+    name="youtu",
+    format_user=StringFormatter(slots=["<|User|>{{content}}<|Assistant|>"]),
+    format_assistant=StringFormatter(slots=["{{content}}<|end_of_text|>"]),
+    format_system=StringFormatter(slots=["{{content}}"]),
+    format_function=FunctionFormatter(slots=["{{content}}"], tool_format="default"),
+    format_observation=StringFormatter(slots=["<tool_response>\n{{content}}\n</tool_response><|Assistant|>"]),
+    format_tools=ToolFormatter(tool_format="default"),
+    format_prefix=EmptyFormatter(slots=[{"bos_token"}]),
+    stop_words=["<|end_of_text|>"],
+    replace_eos=True,
+    template_class=ReasoningTemplate,
 )
 
 
