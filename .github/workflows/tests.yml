@@ -27,23 +27,23 @@ jobs:
         python:
           - "3.11"
           - "3.12"
-          # - "3.13" # enable after trl is upgraded
+          - "3.13"
         os:
           - "ubuntu-latest"
           - "windows-latest"
           - "macos-latest"
         transformers:
-          - null
+          - ""
         include:  # test backward compatibility
-          - python: "3.11"
-            os: "ubuntu-latest"
-            transformers: "4.49.0"
           - python: "3.11"
             os: "ubuntu-latest"
             transformers: "4.51.0"
           - python: "3.11"
             os: "ubuntu-latest"
             transformers: "4.53.0"
+          - python: "3.11"
+            os: "ubuntu-latest"
+            transformers: "4.55.0"
 
     runs-on: ${{ matrix.os }}
 
@@ -70,7 +70,8 @@ jobs:
         run: |
           uv venv
           uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-          uv pip install -e ".[dev]"
+          uv pip install -e .
+          uv pip install -r requirements/dev.txt
 
       - name: Install transformers
         if: ${{ matrix.transformers }}

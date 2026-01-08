@@ -1495,6 +1495,30 @@ register_model_group(
 
 register_model_group(
     models={
+        "LFM2.5-1.2B": {
+            DownloadSource.DEFAULT: "LiquidAI/LFM2.5-1.2B-Base",
+        },
+        "LFM2.5-1.2B-Instruct": {
+            DownloadSource.DEFAULT: "LiquidAI/LFM2.5-1.2B-Instruct",
+        },
+    },
+    template="lfm2",
+)
+
+
+register_model_group(
+    models={
+        "LFM2.5-VL-1.6B": {
+            DownloadSource.DEFAULT: "LiquidAI/LFM2.5-VL-1.6B",
+        },
+    },
+    template="lfm2_vl",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
         "Llama-7B": {
             DownloadSource.DEFAULT: "huggyllama/llama-7b",
             DownloadSource.MODELSCOPE: "skyline2006/llama-7b",
@@ -3843,6 +3867,21 @@ register_model_group(
     },
     template="yi_vl",
     multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "Youtu-LLM-2B-Instruct": {
+            DownloadSource.DEFAULT: "tencent/Youtu-LLM-2B",
+            DownloadSource.MODELSCOPE: "Tencent-YouTu-Research/Youtu-LLM-2B",
+        },
+        "Youtu-LLM-2B-Base": {
+            DownloadSource.DEFAULT: "tencent/Youtu-LLM-2B-Base",
+            DownloadSource.MODELSCOPE: "Tencent-YouTu-Research/Youtu-LLM-2B-Base",
+        },
+    },
+    template="youtu",
 )
 
 

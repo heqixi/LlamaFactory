@@ -298,6 +298,7 @@ Read technical notes:
 | [InternLM/Intern-S1-mini](https://huggingface.co/internlm/)       | 8B                               | intern_s1            |
 | [Kimi-VL](https://huggingface.co/moonshotai)                      | 16B                              | kimi_vl              |
 | [Ling 2.0 (mini/flash)](https://huggingface.co/inclusionAI)       | 16B/100B                         | bailing_v2           |
+| [LFM 2.5 (VL)](https://huggingface.co/LiquidAI)                   | 1.2B/1.6B                        | lfm2/lfm2_vl         |
 | [Llama](https://github.com/facebookresearch/llama)                | 7B/13B/33B/65B                   | -                    |
 | [Llama 2](https://huggingface.co/meta-llama)                      | 7B/13B/70B                       | llama2               |
 | [Llama 3-3.3](https://huggingface.co/meta-llama)                  | 1B/3B/8B/70B                     | llama3               |
@@ -329,6 +330,7 @@ Read technical notes:
 | [StarCoder 2](https://huggingface.co/bigcode)                     | 3B/7B/15B                        | -                    |
 | [VibeThinker-1.5B](https://huggingface.co/WeiboAI)                | 1.5B                             | qwen3                |
 | [Yi/Yi-1.5 (Code)](https://huggingface.co/01-ai)                  | 1.5B/6B/9B/34B                   | yi                   |
+| [Youtu-LLM](https://huggingface.co/tencent/)                      | 2B                               | youtu                |
 | [Yuan 2](https://huggingface.co/IEITYuan)                         | 2B/51B/102B                      | yuan                 |
 
 > [!NOTE]
@@ -514,12 +516,13 @@ huggingface-cli login
 #### Install from Source
 
 ```bash
-git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
-cd LLaMA-Factory
-pip install -e ".[metrics]"
+git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git
+cd LlamaFactory
+pip install -e .
+pip install -r requirements/metrics.txt
 ```
 
-Optional dependencies available: `metrics`, `deepspeed`. Install with: `pip install -e ".[metrics,deepspeed]"`
+Optional dependencies available: `metrics`, `deepspeed`. Install with: `pip install -e . && pip install -r requirements/metrics.txt -r requirements/deepspeed.txt`
 
 Additional dependencies for specific features are available in `examples/requirements/`.
 
@@ -577,35 +580,20 @@ To enable FlashAttention-2 on the Windows platform, please use the script from [
 
 <details><summary>For Ascend NPU users</summary>
 
-To install LLaMA Factory on Ascend NPU devices, please upgrade Python to version 3.10 or higher: `pip install -e . torch-npu==2.7.1`. Additionally, you need to install the **[Ascend CANN Toolkit and Kernels](https://www.hiascend.com/developer/download/community/result?module=cann)**. Please follow the [installation tutorial](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/softwareinstall/instg/atlasdeploy_03_0031.html) or use the following commands:
+To install LLaMA Factory on Ascend NPU devices, please upgrade Python to version 3.10 or higher: `pip install -r requirements/npu.txt`. Additionally, you need to install the **Ascend CANN Toolkit and Kernels**. Please follow the [installation tutorial](https://llamafactory.readthedocs.io/en/latest/advanced/npu_installation.html).
+
+
+You can also download the pre-built Docker images:
 
 ```bash
-# replace the url according to your CANN version and devices
-# install CANN Toolkit
-wget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C20SPC702/Ascend-cann-toolkit_8.0.0.alpha002_linux-"$(uname -i)".run
-bash Ascend-cann-toolkit_8.0.0.alpha002_linux-"$(uname -i)".run --install
+# Docker Hub
+docker pull hiyouga/llamafactory:latest-npu-a2
+docker pull hiyouga/llamafactory:latest-npu-a3
 
-# install CANN Kernels
-wget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C20SPC702/Ascend-cann-kernels-910b_8.0.0.alpha002_linux-"$(uname -i)".run
-bash Ascend-cann-kernels-910b_8.0.0.alpha002_linux-"$(uname -i)".run --install
-
-# set env variables
-source /usr/local/Ascend/ascend-toolkit/set_env.sh
+# quay.io
+docker pull quay.io/ascend/llamafactory:latest-npu-a2
+docker pull quay.io/ascend/llamafactory:latest-npu-a3
 ```
-
-| Requirement  | Minimum | Recommend      |
-| ------------ | ------- | -------------- |
-| CANN         | 8.0.RC1 | 8.0.0.alpha002 |
-| torch        | 2.1.0   | 2.7.1          |
-| torch-npu    | 2.1.0   | 2.7.1          |
-| deepspeed    | 0.13.2  | 0.13.2         |
-| vllm-ascend  | -       | 0.7.3          |
-
-Remember to use `ASCEND_RT_VISIBLE_DEVICES` instead of `CUDA_VISIBLE_DEVICES` to specify the device to use.
-
-If you cannot infer model on NPU devices, try setting `do_sample: false` in the configurations.
-
-Download the pre-built Docker images: [32GB](http://mirrors.cn-central-221.ovaijisuan.com/detail/130.html) | [64GB](http://mirrors.cn-central-221.ovaijisuan.com/detail/131.html)
 
 #### Install BitsAndBytes
 
@@ -639,7 +627,7 @@ cd transformers
 pip install .
 ```
 
-3. Set `double_quantization: false` in the configuration. You can refer to the [example](examples/train_qlora/llama3_lora_sft_bnb_npu.yaml).
+3. Set `double_quantization: false` in the configuration. You can refer to the [example](examples/train_qlora/qwen3_lora_sft_bnb_npu.yaml).
 
 </details>
 
@@ -654,12 +642,12 @@ You can also use **[Easy Dataset](https://github.com/ConardLi/easy-dataset)**, *
 
 ### Quickstart
 
-Use the following 3 commands to run LoRA **fine-tuning**, **inference** and **merging** of the Llama3-8B-Instruct model, respectively.
+Use the following 3 commands to run LoRA **fine-tuning**, **inference** and **merging** of the Qwen3-4B-Instruct model, respectively.
 
 ```bash
-llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
-llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
-llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
+llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml
+llamafactory-cli chat examples/inference/qwen3_lora_sft.yaml
+llamafactory-cli export examples/merge_lora/qwen3_lora_sft.yaml
 ```
 
 See [examples/README.md](examples/README.md) for advanced usage (including distributed training).
@@ -782,7 +770,7 @@ When building the Docker image, use `-v ./hf_cache:/root/.cache/huggingface` arg
 ### Deploy with OpenAI-style API and vLLM
 
 ```bash
-API_PORT=8000 llamafactory-cli api examples/inference/llama3.yaml infer_backend=vllm vllm_enforce_eager=true
+API_PORT=8000 llamafactory-cli api examples/inference/qwen3.yaml infer_backend=vllm vllm_enforce_eager=true
 ```
 
 > [!TIP]

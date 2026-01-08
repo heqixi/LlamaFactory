@@ -300,6 +300,7 @@ https://github.com/user-attachments/assets/43b700c6-a178-41db-b1f8-8190a5d3fcfc
 | [InternLM/Intern-S1-mini](https://huggingface.co/internlm/)       | 8B                               | intern_s1            |
 | [Kimi-VL](https://huggingface.co/moonshotai)                      | 16B                              | kimi_vl              |
 | [Ling 2.0 (mini/flash)](https://huggingface.co/inclusionAI)       | 16B/100B                         | bailing_v2           |
+| [LFM 2.5 (VL)](https://huggingface.co/LiquidAI)                   | 1.2B/1.6B                        | lfm2/lfm2_vl         |
 | [Llama](https://github.com/facebookresearch/llama)                | 7B/13B/33B/65B                   | -                    |
 | [Llama 2](https://huggingface.co/meta-llama)                      | 7B/13B/70B                       | llama2               |
 | [Llama 3-3.3](https://huggingface.co/meta-llama)                  | 1B/3B/8B/70B                     | llama3               |
@@ -331,6 +332,7 @@ https://github.com/user-attachments/assets/43b700c6-a178-41db-b1f8-8190a5d3fcfc
 | [StarCoder 2](https://huggingface.co/bigcode)                     | 3B/7B/15B                        | -                    |
 | [VibeThinker-1.5B](https://huggingface.co/WeiboAI)                | 1.5B                             | qwen3                |
 | [Yi/Yi-1.5 (Code)](https://huggingface.co/01-ai)                  | 1.5B/6B/9B/34B                   | yi                   |
+| [Youtu-LLM](https://huggingface.co/tencent/)                      | 2B                               | youtu                |
 | [Yuan 2](https://huggingface.co/IEITYuan)                         | 2B/51B/102B                      | yuan                 |
 
 > [!NOTE]
@@ -516,12 +518,13 @@ huggingface-cli login
 #### 从源码安装
 
 ```bash
-git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
-cd LLaMA-Factory
-pip install -e ".[metrics]"
+git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git
+cd LlamaFactory
+pip install -e .
+pip install -r requirements/metrics.txt
 ```
 
-可选的额外依赖项：`metrics`、`deepspeed`。使用 `pip install -e ".[metrics,deepspeed]"` 安装。
+可选的额外依赖项：`metrics`、`deepspeed`。使用 `pip install -e . && pip install -r requirements/metrics.txt -r requirements/deepspeed.txt` 安装。
 
 其他可选依赖项请参考 `examples/requirements/` 目录下的文件。
 
@@ -579,35 +582,19 @@ pip install https://github.com/jllllll/bitsandbytes-windows-webui/releases/downl
 
 <details><summary>昇腾 NPU 用户指南</summary>
 
-在昇腾 NPU 设备上安装 LLaMA Factory 时，请升级 Python 到 3.10 及以上，并需要指定额外依赖项，使用 `pip install -e . torch-npu==2.7.1` 命令安装。此外，还需要安装 **[Ascend CANN Toolkit 与 Kernels](https://www.hiascend.com/developer/download/community/result?module=cann)**，安装方法请参考[安装教程](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/80RC2alpha002/quickstart/quickstart/quickstart_18_0004.html)或使用以下命令：
+在昇腾 NPU 设备上安装 LLaMA Factory 时，请升级 Python 到 3.10 及以上，并需要指定额外依赖项，使用 `pip install -r requirements/npu.txt` 命令安装。此外，还需要安装 **Ascend CANN Toolkit 与 Kernels**，安装方法请参考[安装教程](https://llamafactory.readthedocs.io/zh-cn/latest/advanced/npu_installation.html)。
+
+您可以直接下载预安装的最新docker镜像：
 
 ```bash
-# 请替换 URL 为 CANN 版本和设备型号对应的 URL
-# 安装 CANN Toolkit
-wget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C17SPC701/Ascend-cann-toolkit_8.0.RC1.alpha001_linux-"$(uname -i)".run
-bash Ascend-cann-toolkit_8.0.RC1.alpha001_linux-"$(uname -i)".run --install
+# Docker Hub
+docker pull hiyouga/llamafactory:latest-npu-a2
+docker pull hiyouga/llamafactory:latest-npu-a3
 
-# 安装 CANN Kernels
-wget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C17SPC701/Ascend-cann-kernels-910b_8.0.RC1.alpha001_linux.run
-bash Ascend-cann-kernels-910b_8.0.RC1.alpha001_linux.run --install
-
-# 设置环境变量
-source /usr/local/Ascend/ascend-toolkit/set_env.sh
+# quay.io
+docker pull quay.io/ascend/llamafactory:latest-npu-a2
+docker pull quay.io/ascend/llamafactory:latest-npu-a3
 ```
-
-| 依赖项        | 至少     | 推荐           |
-| ------------ | ------- | -------------- |
-| CANN         | 8.0.RC1 | 8.0.0.alpha002 |
-| torch        | 2.1.0   | 2.7.1          |
-| torch-npu    | 2.1.0   | 2.7.1          |
-| deepspeed    | 0.13.2  | 0.13.2         |
-| vllm-ascend  | -       | 0.7.3          |
-
-请使用 `ASCEND_RT_VISIBLE_DEVICES` 而非 `CUDA_VISIBLE_DEVICES` 来指定运算设备。
-
-如果遇到无法正常推理的情况，请尝试设置 `do_sample: false`。
-
-下载预构建 Docker 镜像：[32GB](http://mirrors.cn-central-221.ovaijisuan.com/detail/130.html) | [64GB](http://mirrors.cn-central-221.ovaijisuan.com/detail/131.html)
 
 #### 安装 BitsAndBytes
 
@@ -641,7 +628,7 @@ cd transformers
 pip install .
 ```
 
-3. 在训练参数中设置 `double_quantization: false`，可参考[示例](examples/train_qlora/llama3_lora_sft_bnb_npu.yaml)。
+3. 在训练参数中设置 `double_quantization: false`，可参考[示例](examples/train_qlora/qwen3_lora_sft_bnb_npu.yaml)。
 
 </details>
 
@@ -656,12 +643,12 @@ pip install .
 
 ### 快速开始
 
-下面三行命令分别对 Llama3-8B-Instruct 模型进行 LoRA **微调**、**推理**和**合并**。
+下面三行命令分别对 Qwen3-4B-Instruct 模型进行 LoRA **微调**、**推理**和**合并**。
 
 ```bash
-llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
-llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
-llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
+llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml
+llamafactory-cli chat examples/inference/qwen3_lora_sft.yaml
+llamafactory-cli export examples/merge_lora/qwen3_lora_sft.yaml
 ```
 
 高级用法请参考 [examples/README_zh.md](examples/README_zh.md)（包括多 GPU 微调）。
@@ -787,7 +774,7 @@ docker exec -it llamafactory bash
 ### 利用 vLLM 部署 OpenAI API
 
 ```bash
-API_PORT=8000 llamafactory-cli api examples/inference/llama3.yaml infer_backend=vllm vllm_enforce_eager=true
+API_PORT=8000 llamafactory-cli api examples/inference/qwen3.yaml infer_backend=vllm vllm_enforce_eager=true
 ```
 
 > [!TIP]
