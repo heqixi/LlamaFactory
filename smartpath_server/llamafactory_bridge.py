@@ -577,10 +577,10 @@ class LlamaFactoryBridge:
         models.sort(key=lambda x: x["time"], reverse=True)
         return models
 
-    # 缓存已加载的模型
-    _loaded_model: Optional[Any] = None
-    _loaded_tokenizer: Optional[Any] = None
+    # 使用 Llama-Factory 的 ChatModel 进行推理
+    _chat_model: Optional[Any] = None
     _loaded_lora_path: Optional[str] = None
+    _loaded_base_model: Optional[str] = None
     _is_loading: bool = False
     
     def get_loaded_lora(self) -> Optional[str]:
@@ -593,7 +593,7 @@ class LlamaFactoryBridge:
     
     async def load_lora_model(self, lora_path: str) -> Dict[str, Any]:
         """
-        预加载 LoRA 模型
+        使用 Llama-Factory 的 ChatModel 加载 LoRA 模型
         """
         if self._is_loading:
             return {"success": False, "error": "正在加载其他模型，请稍后"}
@@ -603,19 +603,13 @@ class LlamaFactoryBridge:
         if not full_path.exists():
             return {"success": False, "error": f"LoRA 模型不存在: {lora_path}"}
         
-        # 检查是否已经加载
-        if self._loaded_lora_path == lora_path and self._loaded_model is not None:
+        # 检查是否已经加载相同的模型
+        if self._loaded_lora_path == lora_path and self._chat_model is not None:
             return {"success": True, "message": "模型已加载", "lora_path": lora_path}
         
         self._is_loading = True
         
         try:
-            import torch
-            from transformers import AutoModelForCausalLM, AutoTokenizer
-            from peft import PeftModel
-            
-            print(f"[SmartPath] 开始加载 LoRA 模型: {lora_path}")
-            
             # 先卸载旧模型
             self.unload_lora_model()
             
@@ -624,52 +618,45 @@ class LlamaFactoryBridge:
             base_model = "Qwen/Qwen2-0.5B-Instruct"
             
             if adapter_config_path.exists():
-                with open(adapter_config_path, "r") as f:
+                with open(adapter_config_path, "r", encoding="utf-8") as f:
                     adapter_config = json.load(f)
                 base_model = adapter_config.get("base_model_name_or_path", base_model)
             
+            print(f"[SmartPath] 使用 Llama-Factory ChatModel 加载模型")
             print(f"[SmartPath] 基础模型: {base_model}")
+            print(f"[SmartPath] LoRA 路径: {full_path}")
             
-            # 加载 tokenizer
-            self._loaded_tokenizer = AutoTokenizer.from_pretrained(
-                base_model,
-                trust_remote_code=True,
-            )
+            # 使用 Llama-Factory 的 ChatModel
+            import sys
+            sys.path.insert(0, str(self.lf_root / "src"))
             
-            # 加载基础模型
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-            print(f"[SmartPath] 使用设备: {device}")
+            from llamafactory.chat import ChatModel
             
-            base_model_instance = AutoModelForCausalLM.from_pretrained(
-                base_model,
-                torch_dtype=torch.float16 if device == "cuda" else torch.float32,
-                device_map="auto" if device == "cuda" else None,
-                trust_remote_code=True,
-            )
+            # 构建参数
+            args = {
+                "model_name_or_path": base_model,
+                "adapter_name_or_path": str(full_path),
+                "template": "qwen3_nothink",  # 使用 Qwen3 模板
+                "finetuning_type": "lora",
+                "infer_backend": "huggingface",
+                "trust_remote_code": True,
+            }
             
-            # 加载 LoRA 权重
-            self._loaded_model = PeftModel.from_pretrained(
-                base_model_instance,
-                str(full_path),
-            )
-            self._loaded_model.eval()
+            print(f"[SmartPath] 初始化 ChatModel，参数: {args}")
             
-            if device == "cpu":
-                self._loaded_model = self._loaded_model.to(device)
-            
+            self._chat_model = ChatModel(args)
             self._loaded_lora_path = lora_path
+            self._loaded_base_model = base_model
             
             print(f"[SmartPath] 模型加载完成!")
             
             return {
                 "success": True, 
-                "message": "模型加载成功",
+                "message": "模型加载成功 (via Llama-Factory ChatModel)",
                 "lora_path": lora_path,
                 "base_model": base_model,
-                "device": device,
+                "template": "qwen3_nothink",
             }
-        except ImportError as e:
-            return {"success": False, "error": f"缺少依赖: {e}"}
         except Exception as e:
             import traceback
             traceback.print_exc()
@@ -681,49 +668,45 @@ class LlamaFactoryBridge:
         """
         卸载已加载的 LoRA 模型，释放显存
         """
-        if self._loaded_model is None:
+        if self._chat_model is None:
             return {"success": True, "message": "没有已加载的模型"}
         
         old_path = self._loaded_lora_path
         
         try:
-            import torch
-            import gc
+            from llamafactory.extras.misc import torch_gc
             
             # 释放模型
-            del self._loaded_model
-            del self._loaded_tokenizer
-            self._loaded_model = None
-            self._loaded_tokenizer = None
+            self._chat_model.engine = None
+            self._chat_model = None
             self._loaded_lora_path = None
+            self._loaded_base_model = None
             
             # 清理显存
-            gc.collect()
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
+            torch_gc()
             
             print(f"[SmartPath] 模型已卸载: {old_path}")
             
             return {"success": True, "message": f"模型已卸载: {old_path}"}
         except Exception as e:
+            import traceback
+            traceback.print_exc()
             return {"success": False, "error": str(e)}
     
     async def run_lora_inference(
         self, 
         lora_path: str, 
         prompt: str, 
-        context: Optional[Dict[str, Any]] = None
+        context: Optional[Dict[str, Any]] = None,
+        temperature: float = 0.7,
+        max_new_tokens: int = 512,
+        enable_thinking: bool = False,
     ) -> Dict[str, Any]:
         """
-        使用 LoRA 模型进行推理
-        
-        流程:
-        1. 检查模型是否已加载
-        2. 构建完整的 ChatML 格式输入
-        3. 执行推理并返回结果
+        使用 Llama-Factory ChatModel 进行推理
         """
         # 检查模型是否已加载
-        if self._loaded_model is None or self._loaded_lora_path != lora_path:
+        if self._chat_model is None or self._loaded_lora_path != lora_path:
             # 模型未加载或路径不匹配，使用模拟输出
             mock_output = self._generate_mock_output(prompt, context)
             return {
@@ -736,19 +719,37 @@ class LlamaFactoryBridge:
                 "model_loaded": False,
             }
         
-        # 构建 ChatML 格式输入
+        # 构建系统提示
         system_prompt = """You are a SmartPath Orchestrator for DocumentEditor.
 Capabilities: {"h1,h2,h3":["toggleBold","setHeader","setColor","setText","remove"],"p":["toggleBold","setFontSize","setColor","setText","remove"]}
 Rules: Output the thought process in <thought> tags first, then the action_graph in JSON code block."""
         
+        # 构建用户输入
         user_input = "[Focus Window]\n"
         if context:
             user_input += f"- pos: {context.get('pos', '?')}, type: {context.get('type', '?')}, label: \"{context.get('label', '')}\", state: active\n"
         user_input += f"\nInstruction: {prompt}"
         
+        messages = [{"role": "user", "content": user_input}]
+        
         try:
-            # 执行推理
-            output = await self._do_inference_with_loaded_model(system_prompt, user_input)
+            print(f"[SmartPath] 开始推理: {prompt[:50]}...")
+            
+            # 使用 ChatModel.chat() 进行推理
+            responses = self._chat_model.chat(
+                messages=messages,
+                system=system_prompt,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=0.9,
+            )
+            
+            if responses and len(responses) > 0:
+                output = responses[0].response_text
+            else:
+                output = ""
+            
+            print(f"[SmartPath] 推理完成，输出长度: {len(output)}")
             
             return {
                 "success": True,
@@ -767,50 +768,6 @@ Rules: Output the thought process in <thought> tags first, then the action_graph
                 "lora_path": lora_path,
                 "prompt": prompt,
             }
-    
-    async def _do_inference_with_loaded_model(self, system_prompt: str, user_input: str) -> str:
-        """
-        使用已加载的模型执行推理
-        """
-        import torch
-        
-        # 构建 ChatML 消息
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_input},
-        ]
-        
-        # 应用 chat template
-        text = self._loaded_tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
-        )
-        
-        # Tokenize
-        inputs = self._loaded_tokenizer(text, return_tensors="pt")
-        device = next(self._loaded_model.parameters()).device
-        inputs = {k: v.to(device) for k, v in inputs.items()}
-        
-        # 推理
-        with torch.no_grad():
-            outputs = self._loaded_model.generate(
-                **inputs,
-                max_new_tokens=512,
-                do_sample=True,
-                temperature=0.7,
-                top_p=0.9,
-                pad_token_id=self._loaded_tokenizer.pad_token_id,
-                eos_token_id=self._loaded_tokenizer.eos_token_id,
-            )
-        
-        # 解码输出
-        response = self._loaded_tokenizer.decode(
-            outputs[0][inputs["input_ids"].shape[1]:],
-            skip_special_tokens=True,
-        )
-        
-        return response
     
     async def _do_inference(self, lora_path: str, system_prompt: str, user_input: str) -> str:
         """

@@ -351,23 +351,36 @@ def create_smartpath_router(
     @router.post("/lora/inference")
     async def lora_inference(request: dict):
         """
-        使用指定的 LoRA 模型进行推理
+        使用指定的 LoRA 模型进行推理（基于 Llama-Factory ChatModel）
         
         请求体:
         {
             "lora_path": "saves/Qwen2-0.5B-Instruct/lora/train_xxx",
             "prompt": "用户指令",
-            "context": {"pos": "1.2", "type": "h1", "label": "标题内容"}
+            "context": {"pos": "1.2", "type": "h1", "label": "标题内容"},
+            "temperature": 0.7,
+            "max_new_tokens": 512,
+            "enable_thinking": false
         }
         """
         lora_path = request.get("lora_path")
         prompt = request.get("prompt", "")
         context = request.get("context")
+        temperature = request.get("temperature", 0.7)
+        max_new_tokens = request.get("max_new_tokens", 512)
+        enable_thinking = request.get("enable_thinking", False)
         
         if not lora_path:
             raise HTTPException(status_code=400, detail="lora_path is required")
         
-        result = await bridge.run_lora_inference(lora_path, prompt, context)
+        result = await bridge.run_lora_inference(
+            lora_path, 
+            prompt, 
+            context,
+            temperature=temperature,
+            max_new_tokens=max_new_tokens,
+            enable_thinking=enable_thinking,
+        )
         return result
 
     # ============== 模型管理 ==============

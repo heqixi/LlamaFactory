@@ -12,10 +12,13 @@ SmartPath 与 Llama-Factory 深度集成服务
 
 环境变量:
     SMARTPATH_HOST: 服务监听地址 (默认 0.0.0.0)
-    SMARTPATH_PORT: 服务监听端口 (默认 8000)
+    SMARTPATH_PORT: 服务监听端口 (默认 6006)
 """
 
 import os
+# 跳过 Llama-Factory 的依赖版本检查
+os.environ["DISABLE_VERSION_CHECK"] = "1"
+
 from pathlib import Path
 
 import uvicorn
