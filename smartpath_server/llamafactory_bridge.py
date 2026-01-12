@@ -1,12 +1,13 @@
 """
-Llama-Factory 深度集成桥接器
-负责样本同步、训练日志监控、状态推送
+Llama-Factory Deep Integration Bridge
+Handles sample sync, training log monitoring, status push
 """
 
 from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import time
 from datetime import datetime
@@ -15,6 +16,14 @@ from typing import Any, Callable, Dict, List, Optional
 from dataclasses import dataclass, field
 
 import aiofiles
+
+# Configure logger
+logger = logging.getLogger("SmartPath.Bridge")
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter('[%(name)s] %(message)s'))
+    logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
 
 from .types import (
     SmartPathConfig,
@@ -107,17 +116,17 @@ class LlamaFactoryBridge:
         """初始化桥接器"""
         # 检查 Llama-Factory 目录
         if not self.lf_root.exists():
-            print(f"[SmartPath Bridge] 警告: LLaMA-Factory 目录不存在: {self.lf_root}")
+            logger.warning(f"LLaMA-Factory directory not found: {self.lf_root}")
             return False
         
         if not self.data_dir.exists():
-            print(f"[SmartPath Bridge] 警告: data 目录不存在: {self.data_dir}")
+            logger.warning(f"Data directory not found: {self.data_dir}")
             return False
         
         # 加载现有数据集信息
         await self._load_existing_datasets()
         
-        print(f"[SmartPath Bridge] 已初始化，LLaMA-Factory 路径: {self.lf_root}")
+        logger.info(f"Initialized, LLaMA-Factory path: {self.lf_root}")
         return True
 
     async def _load_existing_datasets(self) -> None:
@@ -141,9 +150,9 @@ class LlamaFactoryBridge:
                             self._samples[name] = [
                                 TrainingSample(**s) for s in samples_data
                             ]
-                        print(f"[SmartPath Bridge] 已加载数据集 '{name}': {len(self._samples[name])} 个样本")
+                        logger.info(f"Loaded dataset '{name}': {len(self._samples[name])} samples")
         except Exception as e:
-            print(f"[SmartPath Bridge] 加载数据集失败: {e}")
+            logger.error(f"Failed to load datasets: {e}")
 
     # ============== 样本管理 ==============
 
@@ -197,11 +206,11 @@ class LlamaFactoryBridge:
             if self.config.auto_register:
                 await self._register_dataset(dataset_name, f"{dataset_name}.json")
             
-            print(f"[SmartPath Bridge] 已同步 {len(samples)} 个样本到 '{dataset_name}'，共 {len(all_samples)} 个")
+            logger.info(f"Synced {len(samples)} samples to '{dataset_name}', total {len(all_samples)}")
             return True, dataset_name
             
         except Exception as e:
-            print(f"[SmartPath Bridge] 同步样本失败: {e}")
+            logger.error(f"Failed to sync samples: {e}")
             return False, ""
 
     async def add_sample(
@@ -256,11 +265,11 @@ class LlamaFactoryBridge:
             async with aiofiles.open(self.dataset_info_path, "w", encoding="utf-8") as f:
                 await f.write(json.dumps(dataset_info, ensure_ascii=False, indent=2))
             
-            print(f"[SmartPath Bridge] 已注册数据集 '{dataset_name}'")
+            logger.info(f"Registered dataset '{dataset_name}'")
             return True
             
         except Exception as e:
-            print(f"[SmartPath Bridge] 注册数据集失败: {e}")
+            logger.error(f"Failed to register dataset: {e}")
             return False
 
     def list_datasets(self) -> List[Dict[str, Any]]:
@@ -293,7 +302,7 @@ class LlamaFactoryBridge:
             self._current_output_dir = await self._find_latest_output_dir()
         
         if not self._current_output_dir:
-            print("[SmartPath Bridge] 未找到训练输出目录")
+            logger.warning("Training output directory not found")
             return
         
         self._monitoring = True
@@ -302,7 +311,7 @@ class LlamaFactoryBridge:
         
         # 启动监控任务
         self._monitor_task = asyncio.create_task(self._monitor_loop())
-        print(f"[SmartPath Bridge] 开始监控训练日志: {self._current_output_dir}")
+        logger.info(f"Started monitoring training logs: {self._current_output_dir}")
 
     async def stop_monitoring(self) -> None:
         """停止监控"""
@@ -314,7 +323,7 @@ class LlamaFactoryBridge:
             except asyncio.CancelledError:
                 pass
             self._monitor_task = None
-        print("[SmartPath Bridge] 已停止监控")
+        logger.info("Stopped monitoring")
 
     async def _find_latest_output_dir(self) -> Optional[Path]:
         """查找最新的训练输出目录"""
@@ -353,7 +362,7 @@ class LlamaFactoryBridge:
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                print(f"[SmartPath Bridge] 监控出错: {e}")
+                logger.error(f"Monitoring error: {e}")
                 await asyncio.sleep(self.config.log_poll_interval * 2)
 
     async def _check_trainer_log(self) -> None:
@@ -363,7 +372,7 @@ class LlamaFactoryBridge:
             self._current_output_dir = await self._find_latest_output_dir()
             if not self._current_output_dir:
                 return
-            print(f"[SmartPath Bridge] 找到训练目录: {self._current_output_dir}")
+            logger.info(f"Found training directory: {self._current_output_dir}")
         
         # 先检查 trainer_log.jsonl
         trainer_log_path = self._current_output_dir / TRAINER_LOG
@@ -397,7 +406,7 @@ class LlamaFactoryBridge:
                     await self._parse_log_entry(line)
                     
         except Exception as e:
-            print(f"[SmartPath Bridge] 读取日志失败: {e}")
+            logger.error(f"Failed to read log: {e}")
 
     async def _check_running_log(self, log_path: Path) -> None:
         """检查 running_log.txt 来确定训练状态"""
@@ -434,7 +443,7 @@ class LlamaFactoryBridge:
                     self.on_progress(self._progress)
                     
         except Exception as e:
-            print(f"[SmartPath Bridge] 读取 running_log 失败: {e}")
+            logger.error(f"Failed to read running_log: {e}")
 
     async def _parse_log_entry(self, line: str) -> None:
         """解析日志条目"""
@@ -622,9 +631,9 @@ class LlamaFactoryBridge:
                     adapter_config = json.load(f)
                 base_model = adapter_config.get("base_model_name_or_path", base_model)
             
-            print(f"[SmartPath] 使用 Llama-Factory ChatModel 加载模型")
-            print(f"[SmartPath] 基础模型: {base_model}")
-            print(f"[SmartPath] LoRA 路径: {full_path}")
+            logger.info("Loading model using Llama-Factory ChatModel")
+            logger.info(f"Base model: {base_model}")
+            logger.info(f"LoRA path: {full_path}")
             
             # 使用 Llama-Factory 的 ChatModel
             import sys
@@ -642,13 +651,13 @@ class LlamaFactoryBridge:
                 "trust_remote_code": True,
             }
             
-            print(f"[SmartPath] 初始化 ChatModel，参数: {args}")
+            logger.info(f"Initializing ChatModel with args: {args}")
             
             self._chat_model = ChatModel(args)
             self._loaded_lora_path = lora_path
             self._loaded_base_model = base_model
             
-            print(f"[SmartPath] 模型加载完成!")
+            logger.info("Model loaded successfully!")
             
             return {
                 "success": True, 
@@ -685,7 +694,7 @@ class LlamaFactoryBridge:
             # 清理显存
             torch_gc()
             
-            print(f"[SmartPath] 模型已卸载: {old_path}")
+            logger.info(f"Model unloaded: {old_path}")
             
             return {"success": True, "message": f"模型已卸载: {old_path}"}
         except Exception as e:
@@ -696,49 +705,57 @@ class LlamaFactoryBridge:
     async def run_lora_inference(
         self, 
         lora_path: str, 
-        prompt: str, 
-        context: Optional[Dict[str, Any]] = None,
+        instruction: str,
+        input_text: str,
         temperature: float = 0.7,
-        max_new_tokens: int = 512,
+        max_new_tokens: int = 2048,  # 增大默认值，不限制模型输出
         enable_thinking: bool = False,
     ) -> Dict[str, Any]:
         """
-        使用 Llama-Factory ChatModel 进行推理
+        Use Llama-Factory ChatModel for inference
+        
+        Args:
+            lora_path: Path to LoRA adapter
+            instruction: System instruction (role description, capabilities, rules)
+            input_text: User input (should include Focus Window)
+            temperature: Sampling temperature
+            max_new_tokens: Max tokens to generate
+            enable_thinking: Enable thinking mode
         """
-        # 检查模型是否已加载
+        # 打印完整的模型输入（调试用）
+        logger.info("=" * 60)
+        logger.info("[SmartPath] 模型完整输入:")
+        logger.info("-" * 40)
+        logger.info(f"[SYSTEM INSTRUCTION]\n{instruction}")
+        logger.info("-" * 40)
+        logger.info(f"[USER INPUT]\n{input_text}")
+        logger.info("=" * 60)
+        
+        # Check if model is loaded
         if self._chat_model is None or self._loaded_lora_path != lora_path:
-            # 模型未加载或路径不匹配，使用模拟输出
-            mock_output = self._generate_mock_output(prompt, context)
+            # Model not loaded, use mock output
+            mock_output = self._generate_mock_output(input_text, None)
             return {
                 "success": True,
                 "lora_path": lora_path,
-                "prompt": prompt,
-                "context": context,
+                "instruction": instruction,
+                "input": input_text,
                 "output": mock_output,
-                "note": "模型未加载，使用模拟输出。请先点击'加载模型'按钮。",
+                "note": "Model not loaded. Please click 'Load Model' button first.",
                 "model_loaded": False,
+                "full_prompt": f"[SYSTEM]\n{instruction}\n\n[USER]\n{input_text}",
             }
         
-        # 构建系统提示
-        system_prompt = """You are a SmartPath Orchestrator for DocumentEditor.
-Capabilities: {"h1,h2,h3":["toggleBold","setHeader","setColor","setText","remove"],"p":["toggleBold","setFontSize","setColor","setText","remove"]}
-Rules: Output the thought process in <thought> tags first, then the action_graph in JSON code block."""
-        
-        # 构建用户输入
-        user_input = "[Focus Window]\n"
-        if context:
-            user_input += f"- pos: {context.get('pos', '?')}, type: {context.get('type', '?')}, label: \"{context.get('label', '')}\", state: active\n"
-        user_input += f"\nInstruction: {prompt}"
-        
-        messages = [{"role": "user", "content": user_input}]
+        # 构建消息（注意：只传 input_text 作为 user message，不要包含 output！）
+        messages = [{"role": "user", "content": input_text}]
         
         try:
-            print(f"[SmartPath] 开始推理: {prompt[:50]}...")
+            logger.info(f"Starting inference with temperature={temperature}, max_tokens={max_new_tokens}")
             
-            # 使用 ChatModel.chat() 进行推理
+            # Use ChatModel.chat() for inference
             responses = self._chat_model.chat(
                 messages=messages,
-                system=system_prompt,
+                system=instruction,
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
                 top_p=0.9,
@@ -749,24 +766,26 @@ Rules: Output the thought process in <thought> tags first, then the action_graph
             else:
                 output = ""
             
-            print(f"[SmartPath] 推理完成，输出长度: {len(output)}")
+            logger.info("-" * 40)
+            logger.info(f"[MODEL OUTPUT]\n{output}")
+            logger.info("=" * 60)
             
             return {
                 "success": True,
                 "lora_path": lora_path,
-                "prompt": prompt,
-                "context": context,
+                "instruction": instruction,
+                "input": input_text,
                 "output": output,
                 "model_loaded": True,
+                "full_prompt": f"[SYSTEM]\n{instruction}\n\n[USER]\n{input_text}",
             }
         except Exception as e:
-            import traceback
-            traceback.print_exc()
+            logger.error(f"Inference failed: {e}", exc_info=True)
             return {
                 "success": False,
                 "error": str(e),
                 "lora_path": lora_path,
-                "prompt": prompt,
+                "full_prompt": f"[SYSTEM]\n{instruction}\n\n[USER]\n{input_text}",
             }
     
     async def _do_inference(self, lora_path: str, system_prompt: str, user_input: str) -> str:

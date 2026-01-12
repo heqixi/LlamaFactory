@@ -1,13 +1,16 @@
 """
-FastAPI 路由器
-提供 RESTful API 和 WebSocket 端点
-深度集成 Llama-Factory
+FastAPI Router
+Provides RESTful API and WebSocket endpoints
+Deep integration with Llama-Factory
 """
 
 from __future__ import annotations
 
 import asyncio
+import logging
 from typing import Any, Dict, List, Optional
+
+logger = logging.getLogger("SmartPath.API")
 
 from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
@@ -113,7 +116,7 @@ def create_smartpath_router(
     async def startup():
         await sample_store.initialize()
         await bridge.initialize()
-        print("[SmartPath] 服务已启动")
+        logger.info("SmartPath service started")
 
     # ============== 样本同步 (直接写入 LLaMA-Factory/data) ==============
 
@@ -351,21 +354,21 @@ def create_smartpath_router(
     @router.post("/lora/inference")
     async def lora_inference(request: dict):
         """
-        使用指定的 LoRA 模型进行推理（基于 Llama-Factory ChatModel）
+        Use LoRA model for inference (via Llama-Factory ChatModel)
         
-        请求体:
+        Request body:
         {
             "lora_path": "saves/Qwen2-0.5B-Instruct/lora/train_xxx",
-            "prompt": "用户指令",
-            "context": {"pos": "1.2", "type": "h1", "label": "标题内容"},
+            "instruction": "System prompt (capabilities, rules)",
+            "input": "User input with Focus Window",
             "temperature": 0.7,
             "max_new_tokens": 512,
             "enable_thinking": false
         }
         """
         lora_path = request.get("lora_path")
-        prompt = request.get("prompt", "")
-        context = request.get("context")
+        instruction = request.get("instruction", "")
+        input_text = request.get("input", "")
         temperature = request.get("temperature", 0.7)
         max_new_tokens = request.get("max_new_tokens", 512)
         enable_thinking = request.get("enable_thinking", False)
@@ -374,9 +377,9 @@ def create_smartpath_router(
             raise HTTPException(status_code=400, detail="lora_path is required")
         
         result = await bridge.run_lora_inference(
-            lora_path, 
-            prompt, 
-            context,
+            lora_path=lora_path,
+            instruction=instruction,
+            input_text=input_text,
             temperature=temperature,
             max_new_tokens=max_new_tokens,
             enable_thinking=enable_thinking,

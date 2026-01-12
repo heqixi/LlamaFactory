@@ -1,12 +1,13 @@
 """
-训练控制器
-负责与 Llama-Factory 训练系统集成
+Training Controller
+Integrates with Llama-Factory training system
 """
 
 from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import re
 import subprocess
@@ -25,9 +26,11 @@ from .types import (
 )
 from .sample_store import SampleStore
 
+logger = logging.getLogger("SmartPath.Training")
+
 
 class TrainingController:
-    """训练控制器"""
+    """Training Controller"""
 
     def __init__(self, config: SmartPathConfig, sample_store: SampleStore):
         self.config = config
@@ -175,7 +178,7 @@ class TrainingController:
             return True
 
         except Exception as e:
-            print(f"[SmartPath] 启动训练失败: {e}")
+            logger.error(f"Failed to start training: {e}")
             return False
 
     async def _monitor_training(self) -> None:
@@ -200,7 +203,7 @@ class TrainingController:
                 await asyncio.sleep(1)
 
             except Exception as e:
-                print(f"[SmartPath] 监控训练出错: {e}")
+                logger.error(f"Training monitoring error: {e}")
                 await asyncio.sleep(2)
 
         # 训练结束
@@ -300,7 +303,7 @@ class TrainingController:
             return True
 
         except Exception as e:
-            print(f"[SmartPath] 停止训练失败: {e}")
+            logger.error(f"Failed to stop training: {e}")
             return False
 
     def _notify_status_change(self) -> None:

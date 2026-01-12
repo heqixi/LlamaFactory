@@ -1,38 +1,41 @@
 """
-WebSocket 连接管理器
-负责实时状态推送
+WebSocket Connection Manager
+Handles real-time status push
 """
 
 from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from typing import Any, Dict, List, Set
 
 from fastapi import WebSocket
 
 from .types import CloudState, TrainingProgress
 
+logger = logging.getLogger("SmartPath.WebSocket")
+
 
 class WebSocketManager:
-    """WebSocket 连接管理器"""
+    """WebSocket Connection Manager"""
 
     def __init__(self):
         self._connections: Set[WebSocket] = set()
         self._lock = asyncio.Lock()
 
     async def connect(self, websocket: WebSocket) -> None:
-        """添加新连接"""
+        """Add new connection"""
         await websocket.accept()
         async with self._lock:
             self._connections.add(websocket)
-        print(f"[SmartPath] WebSocket 客户端已连接，当前连接数: {len(self._connections)}")
+        logger.info(f"WebSocket client connected, total connections: {len(self._connections)}")
 
     async def disconnect(self, websocket: WebSocket) -> None:
-        """移除连接"""
+        """Remove connection"""
         async with self._lock:
             self._connections.discard(websocket)
-        print(f"[SmartPath] WebSocket 客户端已断开，当前连接数: {len(self._connections)}")
+        logger.info(f"WebSocket client disconnected, total connections: {len(self._connections)}")
 
     async def broadcast(self, message: Dict[str, Any]) -> None:
         """广播消息到所有连接"""

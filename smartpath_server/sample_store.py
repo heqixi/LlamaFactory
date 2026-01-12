@@ -1,11 +1,12 @@
 """
-样本存储管理器
-负责样本的持久化存储和数据集生成
+Sample Storage Manager
+Handles sample persistence and dataset generation
 """
 
 from __future__ import annotations
 
 import json
+import logging
 import os
 import uuid
 from datetime import datetime
@@ -19,6 +20,8 @@ from .types import (
     SampleMetadata,
     SmartPathConfig,
 )
+
+logger = logging.getLogger("SmartPath.SampleStore")
 
 
 class SampleStore:
@@ -60,7 +63,7 @@ class SampleStore:
                     if sample.id:
                         self._samples[sample.id] = sample
         except Exception as e:
-            print(f"[SmartPath] 加载样本失败: {e}")
+            logger.error(f"Failed to load samples: {e}")
 
     async def _save_samples(self) -> None:
         """保存样本到文件"""
@@ -69,7 +72,7 @@ class SampleStore:
             async with aiofiles.open(self.samples_file, "w", encoding="utf-8") as f:
                 await f.write(json.dumps(data, ensure_ascii=False, indent=2))
         except Exception as e:
-            print(f"[SmartPath] 保存样本失败: {e}")
+            logger.error(f"Failed to save samples: {e}")
 
     async def add_sample(self, sample: TrainingSample) -> str:
         """添加样本"""
@@ -188,7 +191,7 @@ class SampleStore:
                 llamafactory_data_dir = Path("../LLaMA-Factory/data")
             
             if not llamafactory_data_dir.exists():
-                print("[SmartPath] 未找到 LLaMA-Factory data 目录")
+                logger.warning("LLaMA-Factory data directory not found")
                 return False
 
             dataset_info_path = llamafactory_data_dir / "dataset_info.json"
@@ -213,11 +216,11 @@ class SampleStore:
             async with aiofiles.open(dataset_info_path, "w", encoding="utf-8") as f:
                 await f.write(json.dumps(dataset_info, ensure_ascii=False, indent=2))
 
-            print(f"[SmartPath] 已注册数据集 '{dataset_name}' -> {rel_path}")
+            logger.info(f"Registered dataset '{dataset_name}' -> {rel_path}")
             return True
 
         except Exception as e:
-            print(f"[SmartPath] 注册数据集失败: {e}")
+            logger.error(f"Failed to register dataset: {e}")
             return False
 
     async def create_and_register_dataset(

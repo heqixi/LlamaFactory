@@ -1,11 +1,12 @@
 """
-推理引擎
-负责加载模型并执行推理
+Inference Engine
+Handles model loading and inference
 """
 
 from __future__ import annotations
 
 import json
+import logging
 import re
 from typing import Any, Dict, List, Optional
 
@@ -18,9 +19,11 @@ from .types import (
 )
 from .training_controller import TrainingController
 
+logger = logging.getLogger("SmartPath.Inference")
+
 
 class InferenceEngine:
-    """推理引擎"""
+    """Inference Engine"""
 
     def __init__(
         self,
@@ -94,10 +97,10 @@ class InferenceEngine:
             return True
 
         except ImportError as e:
-            print(f"[SmartPath] 推理功能需要安装 transformers 和 torch: {e}")
+            logger.warning(f"Inference requires transformers and torch: {e}")
             return False
         except Exception as e:
-            print(f"[SmartPath] 初始化推理引擎失败: {e}")
+            logger.error(f"Failed to initialize inference engine: {e}")
             return False
 
     async def inference(self, request: InferenceRequest) -> InferenceResponse:
